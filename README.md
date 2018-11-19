@@ -48,7 +48,7 @@ GET, DELETE on `hosturl/tasks/:taskid`
 
 GET, POST, DELETE(**READ**:ALL ITEMS) on `hosturl/schedules`
 
-GET, DELETE ON `hosturl/schedules/:date`; GET ON `hosturl/schedules/archive/:year/:month`
+GET, DELETE on `hosturl/schedules/:date`; GET ON `hosturl/schedules/archive/:year/:month`
 
 ## Authorization via header authorization
 A simple authentication function is provided via an `express` middleware at `app.py/authenticate`. It is functional but not very secure by any means and cannot generate new keys. (keys have to be hardcoded) It is active on `POST: hosturl/schedules`
