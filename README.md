@@ -5,7 +5,7 @@
 
 [MongoDB](https://www.mongodb.com/), a noSQL database.
 
-[mongoose](https://www.npmjs.com/package/mongoose), a mongoDB modeling tool.
+[mongoose](https://www.npmjs.com/package/mongoose), a MongoDB ORM tool.
 
 [nodemon](https://www.npmjs.com/package/nodemon) (Not installed), a node application monitor.
 
