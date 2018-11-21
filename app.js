@@ -1,6 +1,7 @@
 // module imports
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 // user module imports
 const taskController = require('./controllers/TaskController')
@@ -20,10 +21,11 @@ const port = parseInt(process.argv[2], 10) || 3001
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(cors())
 
 // console logging
 app.use((req, res, next) => {
-  console.log(req.ip + ' ' + req.method + ': ' + req.originalUrl + ' ' + new Date().toISOString()),
+  console.log(`${req.ip} ${req.method}: ${req.originalUrl} ${new Date().toISOString()}`)
   next()
 })
 
