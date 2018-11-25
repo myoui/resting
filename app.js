@@ -8,6 +8,7 @@ const taskController = require('./controllers/TaskController')
 const userController = require('./controllers/UserController')
 const articleController = require('./controllers/ArticleController')
 const scheduleController = require('./controllers/SchedController')
+const indexJson = require('./index.json')
 
 // mongoose/mongoDB
 require('./config/db')
@@ -29,9 +30,9 @@ app.use((req, res, next) => {
   next()
 })
 
-// non-REST access
+// ROOT access
 app.get('/', (req, res) => {
-  res.send("This is a RESTful API, but there's nothing here!")
+  res.status(200).json(indexJson)
 })
 
 // authentication middleware
@@ -55,7 +56,7 @@ app.route('/tasks/:taskid')
   .put(taskController.updateTask)
   .delete(taskController.deleteTask)
 
-app.route('/byauthor/:createdby')
+app.route('/task/byauthor/:createdby')
   .get(taskController.searchAuthor)
 
 // users
@@ -73,7 +74,7 @@ app.route('/users/:userid')
 app.route('/articles')
   .get(articleController.listAllArticles)
   .post(articleController.createNewArticle)
-  .delete(articleController.deleteAllArticles)
+  .delete(authenticate, articleController.deleteAllArticles)
 
 app.route('/articles/:articleid')
   .get(articleController.getArticle)

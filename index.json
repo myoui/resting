@@ -1,0 +1,74 @@
+{
+  "resources": {
+    "tasks": {
+      "uri": "/tasks",
+      "type": "json",
+      "description": "Index of tasks.",
+      "allowed-actions": ["GET", "POST"],
+      "write-protected": false
+    },
+    "tasks-by-id": {
+      "uri": "/tasks/[taskid]",
+      "type": "json",
+      "description": "Single task by ID number.",
+      "allowed-actions": ["GET", "POST", "DELETE"],
+      "write-protected": false
+    },
+    "tasks-author": {
+      "uri": "/tasks/byauthor/[author]",
+      "type": "json",
+      "description": "Search for tasks by author.",
+      "allowed-actions": ["GET"],
+      "write-protected": false
+    },
+    "users": {
+      "uri": "/users",
+      "type": "json",
+      "description": "Index of users.",
+      "allowed-actions": ["GET", "POST"],
+      "write-protected": false
+    },
+    "users by ID": {
+      "uri": "/users/[ID]",
+      "type": "json",
+      "description": "User by ID",
+      "allowed-actions": ["GET", "DELETE"],
+      "write-protected": false
+    },
+    "articles": {
+      "uri": "/articles",
+      "type": "json",
+      "description": "Index of articles",
+      "allowed-actions": ["GET", "POST"],
+      "write-protected": false
+    },
+    "articles-id": {
+      "uri": "/articles/[ID]",
+      "type": "json",
+      "description": "Article by ID",
+      "allowed-actions": ["GET", "DELETE"],
+      "write-protected": false
+    },
+    "schedules": {
+      "uri": "/schedules",
+      "type": "json",
+      "description": "GET: current month's schedule.",
+      "allowed-actions": ["GET", "POST"],
+      "write-protected": true
+    },
+    "schedules-date": {
+      "uri": "/schedules/[date]",
+      "type": "json",
+      "description": "Schedule by date",
+      "allowed-actions": ["GET", "DELETE"],
+      "write-protected": true
+    },
+    "schedules-archive": {
+      "uri": "/schedules/[year]/[month]",
+      "type": "json",
+      "description": "Archive of schedules by month",
+      "allowed-actions": ["GET"],
+      "write-protected": false
+    }
+  }
+}
