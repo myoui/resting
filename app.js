@@ -56,7 +56,7 @@ app.route('/tasks/:taskid')
   .put(taskController.updateTask)
   .delete(taskController.deleteTask)
 
-app.route('/task/byauthor/:createdby')
+app.route('/tasks/byauthor/:createdby')
   .get(taskController.searchAuthor)
 
 // users
@@ -85,7 +85,11 @@ app.route('/articles/:articleid')
 app.route('/schedules')
   .post(authenticate, scheduleController.addSchedule)
   .get(scheduleController.getAllSchedule)
-  .delete(authenticate, scheduleController.deleteAllSchedule)
+  // .delete(authenticate, scheduleController.deleteAllSchedule)
+  /*
+    TODO: DELETE(ALL) is working but disabled, will re-enable after
+    better security is implimented. Use updateall() to refresh all data.
+  */
 
 app.route('/schedules/:date')
   .get(scheduleController.getDaySchedule)

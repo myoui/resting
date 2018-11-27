@@ -10,10 +10,15 @@ exports.getAllSchedule = (req, res) => {
     res.status(200).send(schedule)
   })
 }
+
 exports.getDaySchedule = (req, res) => {
-  Schedule.findOne({ date: req.params.date }, (err, schedule) => {
+  let today = new Date()
+  let query = req.params.date === 'today'
+    ? `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+    : req.params.date
+  Schedule.findOne({ date: query }, (err, schedule) => {
     if (err) {
-      res.status(404).send(err)
+      res.status(500).send(err)
     } else if (!schedule) {
       res.status(404).send({ message: 'Date not found!' })
     } else {
@@ -46,7 +51,7 @@ exports.removeSchedule = (req, res) => {
     if (err) {
       res.status(500).send(err)
     }
-    res.status(200).send({ message: 'Item deleted.' })
+    res.status(200).send({ message: `Item "${req.params.date}" deleted.` })
   })
 }
 

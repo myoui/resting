@@ -32,6 +32,6 @@ exports.deleteUser = (req, res) => {
     if (err) {
       res.status(500).send(err)
     }
-    res.status(200).json({ message: `User ID:${user._id}successfully deleted.` })
+    res.status(200).json({ message: `User ID:${req.params.userid}successfully deleted.` })
   })
 }
